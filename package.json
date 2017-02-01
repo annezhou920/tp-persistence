@@ -1,7 +1,6 @@
 {
   "name": "tripplanner",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets",
@@ -21,10 +20,21 @@
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.23.0",
+    "swig": "^1.4.2",
     "volleyball": "^1.4.1"
   },
   "devDependencies": {
     "node-sass": "^3.8.0",
     "nodemon": "^1.4.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annezhou920/tp-persistence.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/annezhou920/tp-persistence/issues"
+  },
+  "homepage": "https://github.com/annezhou920/tp-persistence#readme",
+  "description": ""
 }
