@@ -11,7 +11,7 @@ module.exports = router;
 
 //get all data about current itinerary from the db
 router.get('/days', function(req, res, next){
-    // {
+// {
 //       include: [Hotel]
 //   }
   Day.findAll()
@@ -23,7 +23,7 @@ router.get('/days', function(req, res, next){
 
 //get data for a specific day
 router.get('/days/:id', function(req, res, next){
-  
+
 })
 
 //add a new day
@@ -37,30 +37,41 @@ router.post('/days', function(req, res, next){
 })
 
 router.post('/days/:id/hotel', function(req, res, next){
-  
+
 })
 
 router.post('/days/:id/restaurants', function(req, res, next){
-  
+
 })
 
 router.post('/days/:id/activities', function(req, res, next){
-  
+
 })
 
 //delete a specific day
 router.delete('/days/:id', function(req, res, next){
-  
+  console.log('is this being destroyed?')
+    Day.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function(){
+      console.log('day has been deleted!')
+    })
+    .catch(next);
+
+
 })
 
 router.delete('/days/:id/hotel', function(req, res, next){
-  
+
 })
 
 router.delete('/days/:id/restaurants', function(req, res, next){
-  
+
 })
 
 router.delete('/days/:id/activities', function(req, res, next){
-  
+
 })
