@@ -53,25 +53,15 @@ var tripModule = (function () {
     });
 
     $removeButton.on('click', function(){
-
-
       $.ajax({
         url: `/api/days/${currentDay.id}`,
         method: 'DELETE'
       })
-      .done(function(){
+      .then(function(){
         console.log('letsee', currentDay)
         deleteCurrentDay()
       })
-      .fail(function() {
-        alert( "error" );
-      })
-
-      // .then(function(){
-      //   console.log('letsee', currentDay)
-      //   deleteCurrentDay()
-      // })
-      // .catch(console.error.bind(console));
+      .catch(console.error.bind(console));
 
 
     });
@@ -125,13 +115,16 @@ var tripModule = (function () {
         //If we are trying to load existing Days, then let's make a request to the server for the day. Remember this is async. For each day we get back what do we need to do to it?
       // ~~~~~~~~~~~~~~~~~~~~~~~
 
+        // url: '/days' with subrouter
         $.get('/api/days')
           // allDays is response from server
           .then(function(allDays){
             // this is what we are serving back to client based on response received
-            allDays.forEach(function(day){
-              addDay(day);
-            })
+            allDays.forEach(addDay);
+            // switchTo(days[0]);
+            // allDays.forEach(function(day){
+            //   addDay(day);
+            // })
             console.log(allDays)
           })
           .catch( console.error.bind(console) );

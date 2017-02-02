@@ -20,4 +20,7 @@ router.get('/', function(req, res, next) {
   .catch(next);
 });
 
+// creates the subrouter
+router.use('/days', require('./api/days'))
+
 module.exports = router;
